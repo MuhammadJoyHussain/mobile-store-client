@@ -1,0 +1,25 @@
+.nav ul{
+  margin-left: 50%;
+}
+
+.nav img{
+    margin: 10px 10px;
+    width: 30px;
+}
+.nav h4{
+    margin-top: 13px;
+}
+
+.nav button{
+    width: 80px;
+    height: 30px;
+    color: white;
+    background-color: chocolate;
+    border: none;
+}
+.nav li{
+    font-size: 20px;  
+    padding: 15px;
+    display: inline-flex;
+}
+
