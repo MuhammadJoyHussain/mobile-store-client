@@ -1,0 +1,11 @@
+#navbar{
+    background: #3949ab;
+}
+
+#navbar li{
+    margin-right: 30px;
+}
+
+#navbar li a{
+    color: white;
+}

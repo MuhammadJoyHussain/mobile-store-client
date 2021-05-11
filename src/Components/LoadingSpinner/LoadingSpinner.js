@@ -1,0 +1,12 @@
+import React from 'react';
+import * as ReactBootstrap from 'react-bootstrap'
+
+const LoadingSpinner = () => {
+    return (
+        <div className="mw-100 vw-100 d-flex justify-content-center align-items-center" style={{height: "70vh"}}>
+            <ReactBootstrap.Spinner animation="border" />
+        </div>
+    );
+};
+
+export default LoadingSpinner;

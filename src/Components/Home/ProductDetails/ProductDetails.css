@@ -1,0 +1,21 @@
+.container{
+    margin-top: 110px !important;
+}
+
+#card{
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 5px 1px #76797c41;
+    background-color: #fff;
+    border-radius: 20px;
+    transition: transform .3s;
+}
+
+#card:hover{
+    transform: translateY(-15px);
+    transition: transform .3s;
+}
+
+.star{
+    color: #fbc02d;
+}

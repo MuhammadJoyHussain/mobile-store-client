@@ -1,49 +1,55 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './Components/Header/Header';
-import Home from './Components/Home/Home';
-import Admin from './Components/Admin/Admin';
-import Orders from './Components/Orders/Orders';
-import { createContext, useState } from 'react';
+import Home from './Components/Home/Home/Home';
+import { createContext, useEffect, useState } from 'react';
 import Login from './Components/Login/Login';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import ManageProducts from './Components/Admin/ManageProducts';
-import Manage from './Components/Admin/Manage';
+import LoadingSpinner from './Components/LoadingSpinner/LoadingSpinner';
+import Manage from './Components/Admin/ManageProduct/Manage';
+import AddProduct from './Components/Admin/AddProduct/AddProduct';
+import Checkout from './Components/Checkout/Checkout/Checkout';
+import Orders from './Components/Orders/Orders/Orders';
 
 export const UserContext = createContext();
 
 function App() {
   const [ loggedIn, setLoggedIn ] = useState({});
+  const [louding, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000);
+  }, []);
 
   return (
     <UserContext.Provider value={[loggedIn, setLoggedIn]}>
     <Router>
-      <Header />
       <Switch>
 
         <Route path="/home">
-          <Home />
+          {louding ? <LoadingSpinner /> : <Home />}
         </Route>
 
         <Route path="/login">
           <Login />
         </Route>
 
-        <PrivateRoute path="/admin">
-          <Admin />
-        </PrivateRoute>
+        <Route path="/admin/addProduct">
+          <AddProduct />
+        </Route>
 
-        <PrivateRoute path="/manageProduct">
+        <Route path="/manage">
           <Manage />
-        </PrivateRoute>
-
-        <PrivateRoute path="/addProduct">
-          <ManageProducts />
-        </PrivateRoute>
+        </Route>
                
-        <PrivateRoute path="/orders/:id">
+        <Route path="/checkout/:id">
+          <Checkout />
+        </Route>
+        
+        <Route path="/orders">
           <Orders />
-        </PrivateRoute>
+        </Route>
         
         <Route exact path="/">
           <Home />
