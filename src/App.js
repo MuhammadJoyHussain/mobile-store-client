@@ -13,7 +13,7 @@ import Orders from './Components/Orders/Orders/Orders';
 export const UserContext = createContext();
 
 function App() {
-  const [ loggedIn, setLoggedIn ] = useState({});
+  const [loggedIn, setLoggedIn] = useState({});
   const [louding, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,39 +24,39 @@ function App() {
 
   return (
     <UserContext.Provider value={[loggedIn, setLoggedIn]}>
-    <Router>
-      <Switch>
+      <Router>
+        <Switch>
 
-        <Route path="/home">
-          {louding ? <LoadingSpinner /> : <Home />}
-        </Route>
+          <Route path="/home">
+            {louding ? <LoadingSpinner /> : <Home />}
+          </Route>
 
-        <Route path="/login">
-          <Login />
-        </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
 
-        <Route path="/admin/addProduct">
-          <AddProduct />
-        </Route>
+          <PrivateRoute path="/admin/addProduct">
+            <AddProduct />
+          </PrivateRoute>
 
-        <Route path="/manage">
-          <Manage />
-        </Route>
-               
-        <Route path="/checkout/:id">
-          <Checkout />
-        </Route>
-        
-        <Route path="/orders">
-          <Orders />
-        </Route>
-        
-        <Route exact path="/">
-          <Home />
-        </Route>
-      
-      </Switch>
-    </Router>
+          <PrivateRoute path="/manage">
+            <Manage />
+          </PrivateRoute>
+
+          <PrivateRoute path="/checkout/:id">
+            <Checkout />
+          </PrivateRoute>
+
+          <PrivateRoute path="/orders">
+            <Orders />
+          </PrivateRoute>
+
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+        </Switch>
+      </Router>
     </UserContext.Provider>
   );
 }

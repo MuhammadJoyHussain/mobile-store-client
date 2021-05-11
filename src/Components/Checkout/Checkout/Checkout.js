@@ -7,7 +7,7 @@ const Checkout = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:4000/product/${id}`)
+        fetch(`https://dry-lowlands-44968.herokuapp.com/product/${id}`)
         .then(res => res.json())
         .then(data => setCheckout(data))
     }, [])

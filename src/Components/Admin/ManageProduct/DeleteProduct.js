@@ -3,7 +3,7 @@ import React from 'react';
 const Product = (props) => {
     const { name, price, _id } = props.product;
     const deleteProduct = () =>{
-        fetch(`http://localhost:4000/deleteProduct/${_id}`,{
+        fetch(`https://dry-lowlands-44968.herokuapp.com/deleteProduct/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

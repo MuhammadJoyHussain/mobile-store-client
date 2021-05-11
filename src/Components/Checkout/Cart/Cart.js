@@ -11,7 +11,7 @@ const Cart = (props) => {
             orderedTime: new Date()
         };
 
-        fetch('http://localhost:4000/addOrder', {
+        fetch('https://dry-lowlands-44968.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,12 +40,12 @@ const Cart = (props) => {
                     <div className="d-flex ml-3">
                         <p style={{ width: "150px" }}>{name}</p>
                         <p style={{ marginLeft: "67vh" }}>1</p>
-                        <p style={{ marginLeft: "42vh", width: "50px" }}>{price}</p>
+                        <p style={{ marginLeft: "42vh", width: "50px" }}>${price}</p>
                     </div>
                     <hr />
                     <div className="d-flex description ml-3">
                         <p>total</p>
-                        <p style={{marginLeft: "128vh"}}>{price}</p>
+                        <p style={{marginLeft: "128vh"}}>${price}</p>
                     </div>
                     <button onClick={handleCheckout} className="btn btn-outline-success">Checkout</button>
                 </div>
