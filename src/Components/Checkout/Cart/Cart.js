@@ -7,7 +7,7 @@ const Cart = (props) => {
     const handleCheckout = () => {
         const orderDtails = {
             name: name,
-            price:price,
+            price: price,
             orderedTime: new Date()
         };
 
@@ -18,37 +18,40 @@ const Cart = (props) => {
             },
             body: JSON.stringify(orderDtails)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data){
-                alert('order successful')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('order successful')
+                }
+            })
     }
 
     return (
-        <div className="row">
-            <div className="checkout">
-                <h1>Checkout</h1>
-                <div className="checkout-box">
-                    <div className="d-flex ml-3 description">
-                        <p>Description</p>
-                        <p style={{ marginLeft: "75vh" }}>Quantity</p>
-                        <p style={{ marginLeft: "38vh" }}>Price</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex ml-3">
-                        <p style={{ width: "150px" }}>{name}</p>
-                        <p style={{ marginLeft: "67vh" }}>1</p>
-                        <p style={{ marginLeft: "42vh", width: "50px" }}>${price}</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex description ml-3">
-                        <p>total</p>
-                        <p style={{marginLeft: "128vh"}}>${price}</p>
-                    </div>
-                    <button onClick={handleCheckout} className="btn btn-outline-success">Checkout</button>
-                </div>
+        <div className="container-fluid">
+            <h1>Checkout</h1>
+            <div className="checkout-table mt-5">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{name}</td>
+                            <td>$ {price}</td>
+                            <td>$ {price}</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <td>Total Amount</td>
+                        <td></td>
+                        <td>$ {price}</td>
+                    </tbody>
+                </table>
+                <button onClick={handleCheckout} className="btn btn-outline-success">Checkout</button>
             </div>
         </div>
     );

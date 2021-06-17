@@ -1,0 +1,19 @@
+.wrapper{
+    margin-left: 140px;
+    padding: 50px;
+    text-align: center;
+}
+
+@media(max-width: 500px){
+    .wrapper{
+        margin-left: 85px;
+    }
+
+    .wrapper th{
+        font-size: 12px;
+    }
+
+    tbody td{
+        font-size: 11px;
+    }
+}

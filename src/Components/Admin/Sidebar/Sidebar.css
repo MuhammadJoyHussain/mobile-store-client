@@ -4,15 +4,12 @@
     height: 100vh;
 }
 .sidebar li a{
-    margin-bottom: 2em;
+    margin-top: 2em;
     color: white;
 }
 
-.sidebar svg{
-    margin-right: 7px;
-}
-@media(max-width: 500px){
-    .sidebar{
-        width: 200px;
+@media(max-width: 500px) {
+    .sidebar a{
+        font-size: 12px;
     }
 }

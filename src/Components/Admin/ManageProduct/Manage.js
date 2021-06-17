@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import DeleteProduct from './DeleteProduct';
+import './Manage.css'
 
 const Manage = () => {
     const [products, setProducts] = useState([])
@@ -12,24 +13,25 @@ const Manage = () => {
     }, [])
 
     return (
-        <div className="container-fluid row">
+        <>
             <Sidebar />
-            <div>
-                <div className="d-flex">
-                    <div style={{ margin: "30px 0 0 40px" }}>
-                        <h5>Product Name</h5>
-                    </div>
-                    <div style={{ margin: "30px 0 0 220px" }}>
-                        <h5>Product Price</h5>
-                    </div>
-                </div>
-                <hr style={{marginLeft:"25px", width: "150vh"}} />
-                {
-                    products.map(product => <DeleteProduct product={product} />)
-                }
+            <div className="wrapper">
+                <table className="table table-sm border-right border-left border-bottom">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                        {
+                            products.map(product => <DeleteProduct product={product} />)
+                        }
+                </table>
             </div>
-        </div>
+        </>
     );
 };
 
 export default Manage;
+

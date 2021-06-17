@@ -4,6 +4,8 @@ import { UserContext } from "../../App";
 import { useHistory, useLocation } from 'react-router';
 import { handleGoogleSignIn } from './LoginManager';
 import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -29,13 +31,13 @@ const Login = () => {
                 handleResponse(res, true);
             })
     }
-  
+
     const handleResponse = (res, redirect) => {
         setUser(res);
         setLoggedIn(res);
         if (redirect) {
             history.replace(from);
-        } 
+        }
     }
 
     const handleBlur = (e) => {
@@ -66,7 +68,7 @@ const Login = () => {
             const newUserInfo = { ...user };
             newUserInfo[e.target.name] = e.target.value;
             setUser(newUserInfo);
-          
+
         }
     }
 
@@ -86,10 +88,36 @@ const Login = () => {
         e.preventDefault();
     }
     return (
-        <div>
-            <button className="signInButton" onClick={googleSignIn}>Sign In With Google</button>
-        </div>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-4 col-sm-4 col-xs-12"></div>
+                    <div className="col-md-4 col-sm-4 col-xs-12">
+                        <div className="form-container">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" />
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Rmember Me</label>
+                            </div>
+                            <button className="btn btn-success btn-block" >Submit</button>
+                        </form>
+                        <h6 style={{ marginTop: "10px", marginLeft: "45%" }}>Or</h6> 
+                        <button className="btn btn-block text-white" style={{ backgroundColor: "#DB4437" }} onClick={googleSignIn}><FontAwesomeIcon style={{ fontSize: "20px" }} icon={faGoogle} /> Sign In With Google</button>
+                        </div>
+                    </div>
+                    <div className="col-md-4 col-sm-4 col-xs-12"></div>
+                </div>
+            </div>
     );
 };
 
 export default Login;
+
+{/*  */ }

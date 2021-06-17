@@ -1,0 +1,12 @@
+.product-container{
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+@media (max-width: 500px) {
+    .product-container{
+        margin-top: 50px;
+        width: 230px;
+        margin-left: 140px;
+    }
+}

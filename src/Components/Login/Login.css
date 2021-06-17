@@ -1,12 +1,11 @@
-
-.signInButton{
-    background-color: rgb(218, 171, 15);
-    color: white;
-    border: none;
-    margin: 15% 40%;
-    border-radius: 3px;
-    width: 200px;
-    height: 50px;
-    font-weight: 700;
+.form-container{
+    padding: 50px 60px;
+    margin-top: 10vh;
+    box-shadow: 1px 4px 26px 10px rgb(207, 207, 207);
 }
 
+@media (max-width: 500px) {
+    .form-container{
+        height: 450px;
+    }
+}

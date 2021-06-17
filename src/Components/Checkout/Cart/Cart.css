@@ -1,19 +1,5 @@
-.checkout p{
-    font-size: 15px;
-}
-
-.description{
-    font-weight: 500;
-}
-
-.checkout button{
-    margin-top: 10px;
-    margin-left: 134vh;
-}
-
-.checkout-box{
-    width: 170vh;
+.checkout-table{
     border-radius: 20px;
-    padding: 20px;
-    box-shadow: 1px 1px 4px gray;
+    padding: 20px 50px;
+    box-shadow: 3px 3px 10px 8px rgb(238, 235, 235);
 }

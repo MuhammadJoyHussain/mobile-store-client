@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import Sidebar from '../Sidebar/Sidebar';
+import './AddProduct.css'
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
@@ -42,31 +43,32 @@ const AddProduct = () => {
 
 
     return (
-        <div className="container-fluid row">
-            <Sidebar />
-            <div>
-                <h3 style={{margin: "150px 0 0 370px"}}>Add Product</h3>
-               <div className="mb-3"  style={{marginLeft: "300px", marginTop: "30px"}}>
-               <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mb-3">
-                        <label className="form-label">Product Name</label>
-                        <input type="text" name="name" className="form-control" placeholder="Enter Name" ref={register} required />
+        <>
+            <div><Sidebar /></div>
+            <div className="container-fluid">
+                    <div className="row">
+                        <div className="product-container">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className="mb-3">
+                                    <label className="form-label">Product Name</label>
+                                    <input type="text" name="name" className="form-control" placeholder="Enter Name" ref={register} required />
+                                </div>
+                                <div className="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Product Price</label>
+                                    <input type="parseInt" name="price" className="form-control" placeholder="Enter Price" ref={register} required />
+                                </div>
+                                <div className="mb-3">
+                                    <label class="form-label">Upload Image</label>
+                                    <input name="file" type="file" className="form-control" placeholder="Upload" onChange={handleImageUpload} required />
+                                </div>
+                                <div className="mb-3">
+                                    <input className="btn btn-outline-primary" type="submit" />
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Product Price</label>
-                        <input type="number" name="price" className="form-control" placeholder="Enter Price" ref={register} required />
-                    </div>
-                    <div className="mb-3">
-                        <label class="form-label">Upload Image</label>
-                        <input name="file" type="file" className="form-control" placeholder="Upload" onChange={handleImageUpload} required />
-                    </div>
-                    <div className="mb-3">
-                        <input className="btn btn-outline-primary" type="submit" />
-                    </div>
-                </form>
-               </div>
-            </div>
-        </div>
+                </div>
+        </>
     );
 };
 

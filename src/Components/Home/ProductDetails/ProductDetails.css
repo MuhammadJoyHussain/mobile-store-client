@@ -12,10 +12,16 @@
 }
 
 #card:hover{
-    transform: translateY(-15px);
+    transform: translateY(-5px);
     transition: transform .3s;
 }
 
 .star{
     color: #fbc02d;
+}
+
+@media(max-width: 500px){
+    #card{
+        margin-left: 30px;
+    }
 }

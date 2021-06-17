@@ -9,6 +9,7 @@ import Manage from './Components/Admin/ManageProduct/Manage';
 import AddProduct from './Components/Admin/AddProduct/AddProduct';
 import Checkout from './Components/Checkout/Checkout/Checkout';
 import Orders from './Components/Orders/Orders/Orders';
+import Admin from './Components/Admin/Admin/Admin';
 
 export const UserContext = createContext();
 
@@ -35,10 +36,14 @@ function App() {
             <Login />
           </Route>
 
-          <PrivateRoute path="/admin/addProduct">
-            <AddProduct />
+          <PrivateRoute path="/admin">
+            <Admin />
           </PrivateRoute>
 
+          <PrivateRoute path="/addProduct">
+            <AddProduct />
+          </PrivateRoute>
+          
           <PrivateRoute path="/manage">
             <Manage />
           </PrivateRoute>
@@ -52,7 +57,7 @@ function App() {
           </PrivateRoute>
 
           <Route exact path="/">
-            <Home />
+          {louding ? <LoadingSpinner /> : <Home />}
           </Route>
 
         </Switch>

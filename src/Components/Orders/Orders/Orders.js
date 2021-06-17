@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import OrderDetails from '../OrderDetails/OrderDetails';
+import './/Order.css'
 
 const Orders = () => {
     const [order, setOrder] = useState([]);
@@ -13,17 +14,20 @@ const Orders = () => {
 
     return (
         <div>
-            <div><Navbar /></div>
-            <div className="container col-md-6">
-                    <ul className="d-flex list-unstyled order">
-                        <li className="nav-item"><a className="nav-link">Product Name</a></li>
-                        <li className="nav-item"><a className="nav-link">Product Price</a></li>
-                        <li className="nav-item"><a className="nav-link">Order Date</a></li>
-                    </ul>
-                <hr />
-                {
-                    order.map(orders => <OrderDetails orders={orders} />)
-                }
+            <Navbar />
+            <div className="order-table">
+                <table className="table table-dark table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                            <th scope="col">Ordred Date</th>
+                        </tr>
+                    </thead>
+                    {
+                        order.map(orders => <OrderDetails orders={orders} />)
+                    }
+                </table>
             </div>
         </div>
     );
