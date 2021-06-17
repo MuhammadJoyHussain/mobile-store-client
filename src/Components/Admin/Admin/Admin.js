@@ -9,7 +9,7 @@ const Admin = () => {
         const adminData = {
             email: data.email
         };
-        const url = `http://localhost:4000/isAdmin`
+        const url = `https://dry-lowlands-44968.herokuapp.com/isAdmin`
         fetch(url, {
             method: 'POST',
             headers: {
