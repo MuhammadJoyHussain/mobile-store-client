@@ -11,7 +11,7 @@ const Navbar = () => {
     const { isSignedIn, name } = loggedInUser;
 
     useEffect(() => {
-        fetch(`http://localhost:4000/isAdmin?email=${loggedInUser?.email}`)
+        fetch(`https://dry-lowlands-44968.herokuapp.com/isAdmin?email=${loggedInUser?.email}`)
             .then(res => res.json())
             .then(data => setIsAdmin(data))
             .catch(err => console.log(err))
